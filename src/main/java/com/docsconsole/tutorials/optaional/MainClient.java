@@ -10,7 +10,7 @@ public class MainClient {
         utils.getEmployee(101);*/
 
         //utils.getEmployeeByName("");
-        utils.getEmployeeById(null);
+        utils.getEmployeeById(Integer.parseInt(null));
 
 
     }

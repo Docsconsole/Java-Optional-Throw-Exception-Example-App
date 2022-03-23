@@ -3,6 +3,8 @@ import com.docsconsole.tutorials.optaional.util.EmployeeUtils;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -25,6 +27,17 @@ public class EmployeeUtilsTest {
             new EmployeeUtils().getEmployeeById(null);
         });
         String expectedMessage = "Employee is not existed with given Id.";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    public void getAddressByEmployeeIdTest() throws Exception {
+
+        Exception exception = assertThrows(NoSuchElementException.class, () -> {
+            new EmployeeUtils().getAddressByEmployeeId(null);
+        });
+        String expectedMessage = "No value present";
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
